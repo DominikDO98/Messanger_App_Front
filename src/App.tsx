@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { LoginContext } from './components/login/context/authcontext'
 import { Register } from './components/login/register'
+import { Login } from './components/login/login'
 
 function App() {
   
@@ -11,6 +12,7 @@ function App() {
     <>
     <LoginContext.Provider value={{token, setToken}}>
     <Register/>
+    <Login/>
     </LoginContext.Provider>
     </>
     )

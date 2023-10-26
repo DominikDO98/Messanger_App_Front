@@ -35,7 +35,8 @@ export const Register = () => {
             });
 
             const data = await res.json()
-            setToken(data)
+            console.log(data);            
+            setToken(data);
             
         } catch (err) {
             console.log(err);
