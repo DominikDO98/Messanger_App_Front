@@ -28,16 +28,16 @@ export const Messanger = async (props: Props) => {
             const data = await res.json(); 
         
             setMessages(data)
+
         } catch (err) {
             console.log(err);
-            
+
         } finally {
             setLoading(false);
         }
             
-        })();
-            
-    }, [])
+        })(); 
+    }, []);
 
     if (loading) {
 
