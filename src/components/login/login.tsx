@@ -1,6 +1,6 @@
 import { FormEvent, useState, useContext } from "react";
 import { TUserCreation } from "../../../types/user.types";
-import { LoginContext } from "./context/authcontext";
+import { LoginContext } from "../../context/authcontext";
 
 
 export const Login = () => {
