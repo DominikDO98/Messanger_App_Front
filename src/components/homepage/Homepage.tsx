@@ -2,11 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { LoginContext } from "../../context/authcontext";
 import { TUserJWT } from "../../../types/user.types";
 import { LoadingSpinner } from "../common/LoadingSpinner";
+import { Inbox } from "./inbox";
 
 export const Homepage = () => {
     const {token} = useContext(LoginContext);
     const [user, setUser] = useState<TUserJWT>({
-        id: '',
+        user_id: '',
         username: '',
     });
     const [loading, setLoading] = useState<boolean>(true);
@@ -35,12 +36,11 @@ export const Homepage = () => {
     }, [])
     
     if (loading) {
-        return <>
-        <LoadingSpinner/>
-        </>
+        return <LoadingSpinner/>
     }
 
     return <>
     <h1>{user.username}</h1>
+    <Inbox/>
     </>
 } 
