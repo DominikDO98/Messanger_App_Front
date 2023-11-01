@@ -22,7 +22,7 @@ export const Messanger = async (props: Props) => {
                     method: 'GET',
                     headers: {
                         'authorization': token,
-                    }
+                    },
                 });
         
             const data = await res.json(); 

@@ -3,8 +3,8 @@ import './App.css';
 import { LoginContext } from './context/authcontext';
 import { Register } from './components/login/register';
 import { Login } from './components/login/login';
-import {Routes, Route} from 'react-router-dom';
-import { Homepage } from './components/homepage/Homepage';
+import { Homepage } from './components/homepage/homepage';
+
 function App() {
   
   const [token, setToken] = useState<string>('')
