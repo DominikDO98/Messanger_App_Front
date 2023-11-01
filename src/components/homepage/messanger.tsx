@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { TMessage } from "../../../types/messege.type"
 import { LoginContext } from "../../context/authcontext"
+import { LoadingSpinner } from "../common/LoadingSpinner";
 
 interface Props {
     room_id: string;
@@ -40,7 +41,7 @@ export const Messanger = async (props: Props) => {
     }, []);
 
     if (loading) {
-
+        return <LoadingSpinner/>
     }
 
 }
