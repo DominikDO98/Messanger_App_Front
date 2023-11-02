@@ -41,7 +41,7 @@ export const Messanger = async (props: Props) => {
     }, []);
 
     if (loading) {
-        return <LoadingSpinner/>
+        return <div><LoadingSpinner/></div>
     }
 
 }

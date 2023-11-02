@@ -1,49 +1,22 @@
-import { useContext, useEffect, useState } from "react"
-import { LoadingSpinner } from "../common/LoadingSpinner"
-import { TRoom } from "../../../types/room.type"
-import { LoginContext } from "../../context/authcontext"
+import { inboxType } from "./homepage"
+import { InboxGroup } from "./inboxGroup"
+import { InboxPrivate } from "./inboxPrivate"
 
-export const Inbox = () => {
-    const {token} = useContext(LoginContext);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [rooms, setRooms] = useState<TRoom[] | null>(null);
+type Props = {
+    inboxState: inboxType
+}
 
-    useEffect(() => {
-        (async() => {
-            try {
-                const res = await fetch('http://localhost:3000/inbox', {
-                    method: "GET",
-                    headers: {
-                    'authorization': token,
-                    },
-                });
-            console.log(res);
-
-            const data = await res.json()
-                console.log(data);
-                
-            setRooms(data)
-
-            } catch (err) {
-                console.log(err);
-                
-            } finally {
-                setLoading(false)
-            }
-
-        })()
-    }, [])
-
-
-    if (loading) {
-        return <LoadingSpinner/>
+export const Inbox = (props: Props) => {
+    
+    if (props.inboxState === 'private') {
+        return <InboxPrivate/>
+    }
+    
+    if (props.inboxState === "group") {
+        return <InboxGroup/>
     }
 
-    if (rooms) {
-        return <p>Działa</p>
+    if (!props.inboxState) {
+        return null
     }
-
-    return <>
-    <p>coś nie działa</p>
-    </>
 }

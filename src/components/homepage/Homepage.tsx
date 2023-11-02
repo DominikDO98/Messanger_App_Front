@@ -4,6 +4,8 @@ import { TUserJWT } from "../../../types/user.types";
 import { LoadingSpinner } from "../common/LoadingSpinner";
 import { Inbox } from "./inbox";
 
+export type inboxType = 'group' | 'private' | null 
+
 export const Homepage = () => {
     const {token} = useContext(LoginContext);
     const [user, setUser] = useState<TUserJWT>({
@@ -11,6 +13,7 @@ export const Homepage = () => {
         username: '',
     });
     const [loading, setLoading] = useState<boolean>(true);
+    const [inbox, setInbox] = useState<inboxType>(null);
 
     useEffect(() => {
         
@@ -34,6 +37,10 @@ export const Homepage = () => {
             }
         })();
     }, [])
+
+    const changeInboxType = (type: inboxType) => {
+        setInbox(type)
+    }
     
     if (loading) {
         return <LoadingSpinner/>
@@ -41,6 +48,9 @@ export const Homepage = () => {
 
     return <>
     <h1>{user.username}</h1>
-    <Inbox/>
+    <div> Chaty
+    <button onClick={e => changeInboxType('group')}> Grupowe </button> <button onClick={e => changeInboxType('private')}> Prywatne </button>
+    <Inbox inboxState = {inbox}/>
+    </div>
     </>
 } 
