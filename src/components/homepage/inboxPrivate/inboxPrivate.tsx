@@ -1,12 +1,17 @@
 import { useContext, useEffect, useState } from "react"
-import { LoadingSpinner } from "../common/LoadingSpinner"
-import { LoginContext } from "../../context/authcontext"
-import { TUser } from "../../../types/user.types"
+import { LoadingSpinner } from "../../common/LoadingSpinner"
+import { LoginContext } from "../../../context/authcontext"
+import { TUser, TUserChat, TUserJWT } from "../../../../types/user.types"
+import { InboxTablePrivate } from "./inboxTablePrivate"
 
-export const InboxPrivate = () => {
+interface Props {
+    user: TUserJWT, 
+}
+
+export const InboxPrivate = (props: Props) => {
     const {token} = useContext(LoginContext);
     const [loading, setLoading] = useState<boolean>(true);
-    const [users, setUsers] = useState<TUser[] | null>(null);
+    const [users, setUsers] = useState<TUserChat[] | null>(null);
 
     useEffect(() => {
         (async() => {
@@ -44,6 +49,6 @@ export const InboxPrivate = () => {
     }
 
     return <>
-    <p>users</p>
+    <p><InboxTablePrivate user={props.user} chats={users}/></p>
     </>
 }

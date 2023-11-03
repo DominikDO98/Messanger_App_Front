@@ -7,3 +7,5 @@ export type TUser = {
 export type TUserJWT = Omit<TUser, 'password'>
 export type TUserCreation = Omit<TUser, "user_id">
 
+
+

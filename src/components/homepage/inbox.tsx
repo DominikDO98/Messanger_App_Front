@@ -1,19 +1,21 @@
+import { TUserJWT } from "../../../types/user.types"
 import { inboxType } from "./homepage"
-import { InboxGroup } from "./inboxGroup"
-import { InboxPrivate } from "./inboxPrivate"
+import { InboxGroup } from "./inbox/inboxGroup"
+import { InboxPrivate } from "./inbox/inboxPrivate"
 
 type Props = {
-    inboxState: inboxType
+    inboxState: inboxType,
+    user: TUserJWT,
 }
 
 export const Inbox = (props: Props) => {
     
     if (props.inboxState === 'private') {
-        return <InboxPrivate/>
+        return <div className="container"><InboxPrivate user = {props.user}/></div>
     }
     
     if (props.inboxState === "group") {
-        return <InboxGroup/>
+        return <div className="container"><InboxGroup user = {props.user}/></div>
     }
 
     if (!props.inboxState) {

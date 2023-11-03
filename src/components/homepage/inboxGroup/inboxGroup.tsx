@@ -1,9 +1,14 @@
 import { useContext, useEffect, useState } from "react"
-import { LoadingSpinner } from "../common/LoadingSpinner"
-import { TRoom } from "../../../types/room.type"
-import { LoginContext } from "../../context/authcontext"
+import { LoadingSpinner } from "../../common/LoadingSpinner"
+import { TRoom } from "../../../../types/room.type"
+import { LoginContext } from "../../../context/authcontext"
+import { TUserJWT } from "../../../../types/user.types"
 
-export const InboxGroup = () => {
+interface Props {
+    user: TUserJWT, 
+}
+
+export const InboxGroup = (props: Props) => {
     const {token} = useContext(LoginContext);
     const [loading, setLoading] = useState<boolean>(true);
     const [rooms, setRooms] = useState<TRoom[] | null>(null);

@@ -43,14 +43,14 @@ export const Homepage = () => {
     }
     
     if (loading) {
-        return <LoadingSpinner/>
+        return <div><LoadingSpinner/></div>
     }
 
     return <>
     <h1>{user.username}</h1>
     <div> Chaty
     <button onClick={e => changeInboxType('group')}> Grupowe </button> <button onClick={e => changeInboxType('private')}> Prywatne </button>
-    <Inbox inboxState = {inbox}/>
+    <Inbox inboxState = {inbox} user = {user}/>
     </div>
     </>
 } 
