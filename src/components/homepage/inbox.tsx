@@ -1,7 +1,7 @@
 import { TUserJWT } from "../../../types/user.types"
 import { inboxType } from "./homepage"
-import { InboxGroup } from "./inbox/inboxGroup"
-import { InboxPrivate } from "./inbox/inboxPrivate"
+import { InboxGroup } from "./inboxGroup/inboxGroup"
+import { InboxPrivate } from "./inboxPrivate/inboxPrivate"
 
 type Props = {
     inboxState: inboxType,

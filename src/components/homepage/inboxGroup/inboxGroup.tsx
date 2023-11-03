@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react"
 import { LoadingSpinner } from "../../common/LoadingSpinner"
-import { TRoom } from "../../../../types/room.type"
+import { TRoomChat } from "../../../../types/room.type"
 import { LoginContext } from "../../../context/authcontext"
 import { TUserJWT } from "../../../../types/user.types"
+import { InboxTableGroup } from "./inboxTableGroup"
 
 interface Props {
     user: TUserJWT, 
@@ -11,7 +12,7 @@ interface Props {
 export const InboxGroup = (props: Props) => {
     const {token} = useContext(LoginContext);
     const [loading, setLoading] = useState<boolean>(true);
-    const [rooms, setRooms] = useState<TRoom[] | null>(null);
+    const [rooms, setRooms] = useState<TRoomChat[] | null>(null);
 
     useEffect(() => {
         (async() => {
@@ -49,6 +50,6 @@ export const InboxGroup = (props: Props) => {
     }
 
     return <>
-    <p>rooms</p>
+    <p><InboxTableGroup user={props.user} chats={rooms}/></p>
     </>
 }
