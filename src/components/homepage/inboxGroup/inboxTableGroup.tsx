@@ -15,7 +15,7 @@ export const InboxTableGroup = (props: Props) => {
     
         <div className="inboxList">
             {
-                [...list].map(chat => <InboxSingleRowGroup user = {props.user} chat={chat}/>)
+                [...list].map(chat => <InboxSingleRowGroup user = {props.user} chat={chat} key={chat.room}/>)
             }
         </div>
     

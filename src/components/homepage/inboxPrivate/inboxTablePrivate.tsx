@@ -14,7 +14,7 @@ export const InboxTablePrivate = (props: Props) => {
     
         <div className="inboxList">
             {
-                [...list].map(chat => <InboxSingleRowPrivate user = {props.user} chat={chat}/>)
+                [...list].map(chat => <InboxSingleRowPrivate user = {props.user} chat={chat} key={chat.user_id}/>)
             }
         </div>
     

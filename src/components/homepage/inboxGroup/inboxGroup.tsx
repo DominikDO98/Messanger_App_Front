@@ -46,10 +46,10 @@ export const InboxGroup = (props: Props) => {
     }
 
     if (!rooms) {
-        return <p>Działa</p>
+        return <p>nie Działa</p>
     }
 
     return <>
-    <p><InboxTableGroup user={props.user} chats={rooms}/></p>
+    <InboxTableGroup user={props.user} chats={rooms}/>
     </>
 }

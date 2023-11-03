@@ -49,6 +49,6 @@ export const InboxPrivate = (props: Props) => {
     }
 
     return <>
-    <p><InboxTablePrivate user={props.user} chats={users}/></p>
+    <InboxTablePrivate user={props.user} chats={users}/>
     </>
 }
