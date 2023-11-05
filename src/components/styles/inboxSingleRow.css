@@ -1,0 +1,12 @@
+.oneInboxEntry {
+    padding: 0.5em;
+    border:  0.1em;
+    border-style: solid;
+    border-color: transparent;
+}
+
+.oneInboxEntry:hover {
+    border-color: grey;
+    border-style: solid;
+    background-color: rgb(60, 60, 60);
+}

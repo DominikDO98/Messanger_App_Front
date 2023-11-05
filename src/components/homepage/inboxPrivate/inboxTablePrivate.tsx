@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TUserChat, TUserJWT } from "../../../../types/user.types";
 import { InboxSingleRowPrivate } from "./inboxSingleRowPrivate";
+import "../../styles/inboxList.css"
 
 interface Props {
     chats: TUserChat[],

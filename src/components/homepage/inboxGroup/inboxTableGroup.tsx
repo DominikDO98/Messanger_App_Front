@@ -2,6 +2,7 @@ import { useState } from "react";
 import { TUserJWT } from "../../../../types/user.types";
 import { TRoomChat } from "../../../../types/room.type";
 import { InboxSingleRowGroup } from "./inboxSingleRowGroup";
+import "../../styles/inboxList.css"
 
 interface Props {
     chats: TRoomChat[],

@@ -1,5 +1,6 @@
 import { TRoomChat } from "../../../../types/room.type"
-import { TUserChat, TUserJWT } from "../../../../types/user.types"
+import { TUserJWT } from "../../../../types/user.types"
+import '../../styles/inboxSingleRow.css'
 
 interface Props {
     chat: TRoomChat,
@@ -9,8 +10,8 @@ interface Props {
 export const InboxSingleRowGroup = (props: Props) => {
 
     return (
-        <div>
-            <div className="username"><strong>{props.chat.room_name}</strong></div>
+        <div className="oneInboxEntry">
+            <div className="username"><strong>{props.chat.room_name ? props.chat.room_name : '--Brak nazwy--'}</strong></div>
             <div className='last_message'>{props.chat.message_text}</div>
         </div>
     )
