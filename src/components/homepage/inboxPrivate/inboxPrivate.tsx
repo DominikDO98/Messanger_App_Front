@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { LoadingSpinner } from "../../common/LoadingSpinner"
 import { LoginContext } from "../../../context/authcontext"
-import { TUser, TUserChat, TUserJWT } from "../../../../types/user.types"
+import { TUserChat, TUserJWT } from "../../../../types/user.types"
 import { InboxTablePrivate } from "./inboxTablePrivate"
 
 interface Props {
