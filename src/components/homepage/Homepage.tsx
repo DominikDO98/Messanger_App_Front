@@ -6,14 +6,15 @@ import { Inbox } from "./inbox";
 import { TRoom } from "../../../types/room.type";
 import { Messanger } from "./messanger/messanger";
 import { ChatContext } from "../../context/chatContex";
+import { TMessage } from "../../../types/messege.type";
 
 
 export type inboxType = 'group' | 'private' | null; 
 export type chatWindowTypes = {
-    room: {
-        room: string,
-        room_name: string,
-        is_private: boolean,
+    chat: {
+        chat_id: string,
+        chat_name: string,
+        other_chat_member_id: string,
     },
     isOpen: boolean,
 }
@@ -27,10 +28,10 @@ export const Homepage = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [inbox, setInbox] = useState<inboxType>(null);
     const [chatWindow, setChatWindow] = useState<chatWindowTypes>({
-        room: {
-            room: '',
-            room_name: '',
-            is_private: false,
+        chat: {
+            chat_id: '',
+            chat_name: '',
+            other_chat_member_id: '',           
         },
         isOpen: false,
     })
@@ -60,6 +61,10 @@ export const Homepage = () => {
 
     const changeInboxType = (type: inboxType) => {
         setInbox(type)
+        setChatWindow(chat => ({
+            ...chat,
+            isOpen: false
+        }))
     }
     
     if (loading) {
@@ -71,12 +76,12 @@ export const Homepage = () => {
         <h1>{user.username}</h1>
             <div> Chaty &nbsp;
                 
-                <button onClick={e => changeInboxType('group')}> Grupowe </button> <button onClick={e => changeInboxType('private')}> Prywatne </button>
+                <button onClick={e => changeInboxType('group')}> Grupowe </button> 
+                <button onClick={e => changeInboxType('private')}> Prywatne </button>
                 
                 <Inbox inboxState = {inbox} user = {user}/>
                 
-                {chatWindow.isOpen ? <Messanger room = {chatWindow.room} loggedUser={user}/> : null}
-            
+                {chatWindow.isOpen ? <Messanger loggedUser={user}/> : <></>}
             </div>
     </ChatContext.Provider>
     </>

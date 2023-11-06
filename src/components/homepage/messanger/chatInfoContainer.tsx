@@ -1,10 +1,11 @@
-interface Props {
-    chatName: string;
-}
+import { useContext } from "react";
+import { ChatContext } from "../../../context/chatContex";
 
 
-export const ChatInfoContainer = (props: Props) => {
-return <>
-    <div className="chatName"><strong>{props.chatName}</strong></div>
-</>
+export const ChatInfoContainer = () => {
+    const {chatWindow} = useContext(ChatContext);
+        
+    return <>
+        <div className="chatName"><strong>{chatWindow.chat.chat_name}</strong></div>
+    </>
 }

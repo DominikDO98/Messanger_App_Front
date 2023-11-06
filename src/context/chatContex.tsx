@@ -3,12 +3,12 @@ import { chatWindowTypes } from "../components/homepage/homepage";
 
 export const ChatContext = createContext({
     chatWindow: {
-        room: {
-            room: '',
-            room_name: '',
-            is_private: false,
+        chat: {
+            chat_id: '',
+            chat_name: '',
+            other_chat_member_id: '',
         },
-        isOpen: false,
-    },
+    isOpen: false,
+},
     setChatWindow: (ch: chatWindowTypes) => {},
 });

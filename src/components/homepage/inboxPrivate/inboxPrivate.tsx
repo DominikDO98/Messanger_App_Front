@@ -5,7 +5,7 @@ import { TUserChat, TUserJWT } from "../../../../types/user.types"
 import { InboxTablePrivate } from "./inboxTablePrivate"
 
 interface Props {
-    user: TUserJWT, 
+    user: TUserJWT,
 }
 
 export const InboxPrivate = (props: Props) => {
@@ -45,7 +45,7 @@ export const InboxPrivate = (props: Props) => {
     }
 
     if (!users) {
-        return <p>nie Działa</p>
+        return <p>--Brak połączonych użytkowników--</p>
     }
 
     return <>

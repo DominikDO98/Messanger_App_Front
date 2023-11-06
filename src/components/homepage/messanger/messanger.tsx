@@ -5,37 +5,37 @@ import { LoadingSpinner } from "../../common/LoadingSpinner";
 import { ChatInfoContainer } from "./chatInfoContainer";
 import { MessagesContainer } from "./messagesContainer";
 import { TUserJWT } from "../../../../types/user.types";
-import { TRoom } from "../../../../types/room.type";
+import { ChatContext } from "../../../context/chatContex";
+import { MessageInput } from "./messageInput";
 
 interface Props {
-    loggedUser: TUserJWT;
-    room: TRoom;
-    chatMember?: TUserJWT;
+    loggedUser: TUserJWT,
 }
 
 export const Messanger = (props: Props) => {
     const {token} = useContext(LoginContext);
+    const {chatWindow} = useContext(ChatContext);
     const [loading, setLoading] = useState<boolean>(true)
     const [messages, setMessages] = useState<TMessage[]>([]);
 
-    const socket = new WebSocket(`ws://localhost:3000/ws/${props.room.room}`);
+    const socket = new WebSocket(`ws://localhost:3000/ws/${chatWindow.chat.chat_id}`);
 
 
     useEffect(() => {
         
+        setLoading(true);
+
         (async() => {
             try {
-                const res = await fetch(`http://localhost:3000/messanger/get_messages/${props.room.room}`, {
+                const res = await fetch(`http://localhost:3000/messanger/get_messages/${chatWindow.chat.chat_id}`, {
                     method: 'GET',
                     headers: {
                         'authorization': token,
                     },
                 });
         
-                console.log(res);
                 
             const data = await res.json(); 
-        console.log(data);
         
             setMessages(data)
 
@@ -47,18 +47,21 @@ export const Messanger = (props: Props) => {
         }
             
         })(); 
-    }, []);
+    }, [chatWindow]);
 
 
     if (loading) {
         return <div><LoadingSpinner/></div>
     }
 
+    console.log("Messager", messages);
+    
 
     return <>
     <div className="messanger">
-    <ChatInfoContainer chatName={props.chatMember?.username ? props.chatMember?.username : props.room.room_name}/>
+    <ChatInfoContainer/>
     <MessagesContainer messages={messages} loggedUser={props.loggedUser}/>
+    <MessageInput/>
     </div>
     </>
 
