@@ -8,9 +8,12 @@ import { TUserJWT } from "../../../../types/user.types";
 import { ChatContext } from "../../../context/chatContex";
 import { MessageInput } from "./messageInput";
 import './messanger.css'
+import { AddNewUser } from "./addNewUser";
+import { TypeOfRoom } from "../homepage";
 
 interface Props {
     loggedUser: TUserJWT,
+    roomType: TypeOfRoom,
 }
 
 export const Messanger = (props: Props) => {
@@ -87,6 +90,7 @@ export const Messanger = (props: Props) => {
     <ChatInfoContainer/>
     <MessagesContainer messages={messages} loggedUser={props.loggedUser}/>
     <MessageInput loggedUser = {props.loggedUser} onSend = {submitMessage}/>
+    {props.roomType === 'group' ? <AddNewUser/> : <></>}
     </div>
     </>
 

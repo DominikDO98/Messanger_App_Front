@@ -86,7 +86,7 @@ export const Homepage = () => {
                 
                 
             </div>
-            <div>{chatWindow.isOpen ? <Messanger loggedUser={user}/> : <></>}</div>
+            <div>{chatWindow.isOpen ? <Messanger loggedUser={user} roomType = {inbox}/> : <></>}</div>
             <div>
                 Stwórz konwersacje &nbsp;
                 <button onClick={e => setTypeOfRoom("group")} value={"group"}>Grupa</button>
