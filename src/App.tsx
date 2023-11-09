@@ -1,21 +1,27 @@
-import { useState } from 'react'
-import './App.css'
-import { LoginContext } from './context/authcontext'
-import { Register } from './components/login/register'
-import { Login } from './components/login/login'
+import { useState } from 'react';
+import './App.css';
+import { LoginContext } from './context/authcontext';
+import { Register } from './components/login/register';
+import { Login } from './components/login/login';
+import { Homepage } from './components/homepage/homepage';
 
 function App() {
   
   const [token, setToken] = useState<string>('')
 
-  return (
-    <>
+  if (token === '') return <>
+  <LoginContext.Provider value={{token, setToken}}>
+  <Register/>
+  <Login/>
+  </LoginContext.Provider>
+  </>
+
+  return <>
     <LoginContext.Provider value={{token, setToken}}>
-    <Register/>
-    <Login/>
+    <Homepage/>
     </LoginContext.Provider>
     </>
-    )
+    
   }
 
 export default App

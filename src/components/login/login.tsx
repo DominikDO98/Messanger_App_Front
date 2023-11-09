@@ -50,7 +50,7 @@ export const Login = () => {
 
     if (loading) {
         return <>
-        <p>coś tam... trwa ładowanie... brrrrr.</p>
+        <p>Wysyłanie...</p>
         </>
     }
 
