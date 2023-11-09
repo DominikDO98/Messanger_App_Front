@@ -2,14 +2,14 @@
 import { TMessage } from "../../../../types/messege.type"
 import { MessageOne } from "./messageOne"
 import { TUserJWT } from "../../../../types/user.types";
-import './messanger.css'
+
 interface Props {
     messages: TMessage[];
     loggedUser: TUserJWT;
 }
 
 export const MessagesContainer = (props: Props) => {    
-    
+
     return <>
     <div className="container-messanger">
         {
