@@ -1,2 +1,2 @@
 # Messanger_App_Front
-Built in React Frontend for my messanging app
+This is Fronend buid for my MegaK exam project, more inforamtion in backend repository https://github.com/DominikDO98/Messanger_App_Back
