@@ -44,7 +44,7 @@ export const InboxPrivate = (props: Props) => {
         return <div><LoadingSpinner/></div>
     }
 
-    if (!users) {
+    if (!users || !users[0]) {
         return <p>--Brak połączonych użytkowników--</p>
     }
 

@@ -1,0 +1,4 @@
+.container-inbox{
+    overflow-y: scroll;
+    height: 150px;
+}

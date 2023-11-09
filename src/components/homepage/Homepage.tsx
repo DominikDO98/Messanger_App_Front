@@ -7,9 +7,11 @@ import { TRoom } from "../../../types/room.type";
 import { Messanger } from "./messanger/messanger";
 import { ChatContext } from "../../context/chatContex";
 import { TMessage } from "../../../types/messege.type";
+import { CreateRoom } from "../createRoom/createRoom";
 
 
-export type inboxType = 'group' | 'private' | null; 
+export type inboxType = 'group' | 'private' | null;
+export type TypeOfRoom = 'private' | 'group' | null;
 export type chatWindowTypes = {
     chat: {
         chat_id: string,
@@ -27,6 +29,7 @@ export const Homepage = () => {
     });
     const [loading, setLoading] = useState<boolean>(true);
     const [inbox, setInbox] = useState<inboxType>(null);
+    const [typeOfRoom, setTypeOfRoom] = useState<TypeOfRoom>(null);
     const [chatWindow, setChatWindow] = useState<chatWindowTypes>({
         chat: {
             chat_id: '',
@@ -82,6 +85,12 @@ export const Homepage = () => {
                 <Inbox inboxState = {inbox} user = {user}/>
                 
                 {chatWindow.isOpen ? <Messanger loggedUser={user}/> : <></>}
+            </div>
+            <div>
+                Stwórz konwersacje &nbsp;
+                <button onClick={e => setTypeOfRoom("group")} value={"group"}>Grupa</button>
+                <button onClick={e => setTypeOfRoom("private")} value={"private"}>Prywatna</button>
+                <CreateRoom type={typeOfRoom}/>
             </div>
     </ChatContext.Provider>
     </>

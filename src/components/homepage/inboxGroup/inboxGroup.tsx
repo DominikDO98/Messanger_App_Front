@@ -45,8 +45,8 @@ export const InboxGroup = (props: Props) => {
         return <div><LoadingSpinner/></div>
     }
 
-    if (!rooms) {
-        return <p>nie Działa</p>
+    if (!rooms || !rooms[0]) {
+        return <p>--Brak chatów grupowych--</p>
     }
 
     return <>

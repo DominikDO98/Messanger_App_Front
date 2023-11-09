@@ -16,7 +16,12 @@ export const MessageInput = (props: Props) => {
 
     const sendMessage = (e: FormEvent, text: string) =>{
         e.preventDefault()
+        if (message === '') {
+            console.log('Nie można wysłać pustej wiadomości');            
+        } else {
         props.onSend(text)
+        setMessage('')
+    }
     }
 
     return <>
