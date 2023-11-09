@@ -2,3 +2,53 @@
     height: 300px;
     overflow-y: scroll;
 }
+.chatName {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+}
+
+.messageInput {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+}
+
+.messanger{
+    border-radius: 8px;
+    border: 1px solid transparent;
+    border-color: #1a1a1a;
+}
+#send {
+    background-color: rgb(154, 39, 39);
+    width: 50%;
+    border-radius: 1em;
+    border: 0.1em solid transparent;
+    padding: 0.1em;
+    margin: 0.15em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    float: right;
+}
+
+#recived {
+    background-color: grey;
+    width: 50%;
+    border-radius: 1em;
+    border: 0.1em solid transparent;
+    padding: 0.1em;
+    margin: 0.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    float: left;
+}

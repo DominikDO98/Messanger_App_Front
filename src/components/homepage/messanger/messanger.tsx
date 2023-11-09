@@ -1,4 +1,4 @@
-import { FormEvent, useContext, useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { TMessage, TMessageCreation } from "../../../../types/messege.type"
 import { LoginContext } from "../../../context/authcontext"
 import { LoadingSpinner } from "../../common/LoadingSpinner";
@@ -7,6 +7,7 @@ import { MessagesContainer } from "./messagesContainer";
 import { TUserJWT } from "../../../../types/user.types";
 import { ChatContext } from "../../../context/chatContex";
 import { MessageInput } from "./messageInput";
+import './messanger.css'
 
 interface Props {
     loggedUser: TUserJWT,

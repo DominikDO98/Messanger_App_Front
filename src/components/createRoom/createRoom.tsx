@@ -73,7 +73,7 @@ export const CreateRoom = (props: Props) => {
         return <>
         <form onSubmit={e => submitForm(e)}>
             Nazwa użytkownika: &nbsp;
-            <input type="text" value={username} onChange={e => handleChange('username', e.target.value)}></input> &nbsp;
+            <input type="text" value={username} onChange={e => handleChange('username', e.target.value)}></input><br/>
             Nazwa pokoju: &nbsp;
             <input type="text" value={roomName} onChange={e => handleChange('roomName', e.target.value)}></input>
             <button type="submit">Stwórz pokój</button>

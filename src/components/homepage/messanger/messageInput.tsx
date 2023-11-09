@@ -24,10 +24,10 @@ export const MessageInput = (props: Props) => {
     }
     }
 
-    return <>
+    return <div className= 'messageInput'>
     <form onSubmit={e => sendMessage(e, message)}>
     <input type="text" value={message} onChange={e => handleChange(e, e.target.value)}/>
     <button type="submit">➤</button>
     </form>
-    </>
+    </div>
 }
